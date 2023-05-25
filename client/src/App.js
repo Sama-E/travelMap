@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import ReactMapGl from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
+  const [viewPort, setViewPort] = useState({
+    width: "100vw",
+    height: "100vh",
+    longitude: 37.7577,
+    latitude: -80,
+    zoom: 5
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactMapGl
+          {...viewPort}
+          mapboxApiAccessToken = {process.env.REACT_APP_PUBLIC_MAPBOX}
+          onViewPortChange={nextViewPort => setViewPort(nextViewPort)}
+        />
     </div>
   );
 }
+
 
 export default App;
