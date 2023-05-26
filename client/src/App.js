@@ -13,7 +13,7 @@ const TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 function App() {
   //User
   const [currentUser, setCurrentUser] = useState();
-  const storeUser = window.localStorage;
+  const storeUser = localStorage;
 
   //Places
   const[pins, setPins] = useState([]);

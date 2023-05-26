@@ -17,7 +17,8 @@ const Login = ({setShowLogin, storeUser, setCurrentUser}) => {
     
     try {
       const res = await axios.post("/users/login", user);
-      storeUser.setItem('user', res.data.username)
+      console.log(res);
+      storeUser.setItem('user', res.data.username);
       setCurrentUser(res.data.username)
       setShowLogin(false);
     } catch (err) {

@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
 
 
 //Login users 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     //Find user
     const user = await User.findOne({ username: req.body.username });
